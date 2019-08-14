@@ -52,7 +52,8 @@ Set existing cards already included in the application:
 	[id] [int] NOT NULL,
 	[name] [varchar](100) NOT NULL,
 	[set] [varchar](100) NOT NULL,
-	[set_code] [varchar](5) NOT NULL
+	[setcode] [varchar](5) NULL
+	[mtgid] [int] NOT NULL
 
 ##Shelf
 
