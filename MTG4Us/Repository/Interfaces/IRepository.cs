@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Domain;
+using Domain.Base;
 using System.Collections.Generic;
 
 namespace Repository.Interfaces
