@@ -68,7 +68,7 @@ A shelf is the inventory each user has for loan:
 
 ##Wish
 
-A wish contains the items that a borrower wishes for.
+A wish contains the item that a borrower wishes for.
 
 	[id] [int] IDENTITY(1,1) NOT NULL,  
 	[custid] [int] NULL,  
@@ -120,13 +120,19 @@ A bag holds items the user borrowed.
 Definitions of the boxes in each spot:
 
 	[id] [int] NOT NULL,  
+	[boxnumber] [int] NOT NULL,  
 	[spotid] [int] NULL,  
 	[custid] [int] NULL,  
-	[itemid] [int] NULL,  
-	[quantity] [int] NULL,  
-	[status] [bit] NOT NULL
-
+	[ownerid] [int] NULL,
+	[status] [bit] NOT NULL  
     Status:  
     0 - Empty  
     1 - Occupied  
 
+##BoxContent
+
+Definitions of the items in each box:
+
+	[boxid] [int] NOT NULL,  
+	[itemid] [int] NULL,  
+	[quantity] [int] NULL
