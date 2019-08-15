@@ -3,7 +3,7 @@ using Domain;
 using Domain.Base;
 using System.Collections.Generic;
 
-namespace Repository.Interfaces
+namespace Repository.Interfaces.Base
 {
     public interface IRepository<T> where T : Entity
     {

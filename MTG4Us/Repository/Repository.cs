@@ -1,10 +1,9 @@
 ﻿using Dapper;
 using Dapper.Contrib.Extensions;
-using Domain;
 using Domain.Base;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Repository.Interfaces;
+using Repository.Interfaces.Base;
 using System;
 using System.Collections.Generic;
 using System.Data;

@@ -59,7 +59,7 @@ Set existing cards already included in the application:
 
 A shelf is the inventory each user has for loan:
 
-	[id] [int] IDENTITY(1,1) NOT NULL,  
+	[id] [int] NOT NULL,  
 	[custid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[conservation] [varchar](100) NULL,  
@@ -71,6 +71,8 @@ A shelf is the inventory each user has for loan:
 A wish contains the items that a borrower wishes for.
 
 	[id] [int] IDENTITY(1,1) NOT NULL,  
+	[custid] [int] NULL,  
+	[ownerid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[quantity] [int] NULL,  
 	[returndate] [date] NOT NULL,  
