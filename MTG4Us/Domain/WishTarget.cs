@@ -3,15 +3,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
 {
-    [Table("customers.vwshelf", Schema = "customers")]
-    public class Shelf : Entity
+    [Table("transactions.vwwishtargets", Schema = "customers")]
+    public class WishTarget : Entity
     {
         public int custid { get; set; }
+        public int spotid { get; set; }
+        public string spot { get; set; }
+        public int ownerid { get; set; }
+        public string owner { get; set; }
         public int itemid { get; set; }
         public string itemdescription { get; set; }
-        public string conservation { get; set; }
         public int quantity { get; set; }
-        public int availableqty { get; set; }
         public double marketprice { get; set; }
     }
 }

@@ -6,6 +6,5 @@ namespace Repository.Interfaces
 {
     public interface IWishRepository : IRepository<Wish>
     {
-        List<Wish> ExecuteQuery(int userid, int itemid);
     }
 }

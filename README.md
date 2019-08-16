@@ -57,13 +57,14 @@ Set existing cards already included in the application:
 
 ##Shelf
 
-A shelf is the inventory each user has for loan:
+A shelf contains items each user has for loan:
 
-	[id] [int] NOT NULL,  
+	[id] [int] IDENTITY(1,1) NOT NULL,  
 	[custid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[conservation] [varchar](100) NULL,  
 	[quantity] [int] NULL,  
+	[availableqty] [int] NULL,  
 	[marketprice] [numeric](10, 2) NULL  
 
 ##Wish
@@ -75,6 +76,7 @@ A wish contains the item that a borrower wishes for.
 	[ownerid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[quantity] [int] NULL,  
+	[spotid] [int] NULL,  
 	[returndate] [date] NOT NULL,  
 	[expiringdate] [date] NOT NULL,  
 	[status] [int] NOT NULL  
@@ -85,19 +87,36 @@ A wish contains the item that a borrower wishes for.
     3 - Granted  
     4 - Expired
 
+##WishTarget
+
+The top 20 possible granters of a wish, ordered by available quantity and marketprice.
+
+	[custid] [int] NULL,  
+	[spotid] [int] NULL,  
+	[spot] [string] NULL,  
+	[ownerid] [int] NULL,  
+	[owner] [string] NULL,  
+	[itemid] [int] NULL,  
+	[itemdescription] [string] NOT NULL,  
+	[quantity] [int] NOT NULL,  
+	[marketprice] [numeric](10, 2) NULL  
+
 ##Exchange
 
-Sets the exchange confirmation of a wish that has been attended to.
+Controls the exchange transaction of a wish that has been granted.
 
 	[id] [int] IDENTITY(1,1) NOT NULL,  
 	[wishid] [int] NULL,  
+	[boxid] [int] NULL,  
 	[bagid] [int] NULL,  
+	[shelfid] [int] NULL,  
 	[status] [int] NOT NULL  
     Status:  
     0 - Cancelled  
     1 - Attended  
     2 - Granted  
-    3 - Accomplished
+    3 - Returned  
+	4 - Accomplished
 
 ##Bag
 
