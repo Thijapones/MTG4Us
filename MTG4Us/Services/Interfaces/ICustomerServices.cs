@@ -1,17 +1,10 @@
 ﻿using Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Business.Interfaces
+namespace Services.Interfaces
 {
-    public interface ICustomerBusiness
+    public interface ICustomerServices
     {
-        /// <summary>
-        /// A customer cannot be removed. 
-        /// Instead, its status should be set to Inactive.
-        /// </summary>
-        /// <returns></returns>
         Customer Insert(Customer customer);
 
         Customer GetById(int id);

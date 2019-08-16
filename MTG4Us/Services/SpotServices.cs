@@ -1,59 +1,58 @@
 ﻿using Business.Interfaces;
 using Domain;
-using Repository.Interfaces;
+using Services.Interfaces;
 using System.Collections.Generic;
 
-namespace Business
+namespace Services
 {
-    public class SpotBusiness : ISpotBusiness
+    public class SpotServices : ISpotServices
     {
-        private readonly ISpotRepository _spotRepository;
-
-        public SpotBusiness(ISpotRepository spotRepository)
+        private readonly ISpotBusiness _spotBusiness;
+        public SpotServices(ISpotBusiness spotBusiness)
         {
-            _spotRepository = spotRepository;
+            _spotBusiness = spotBusiness;
         }
 
         public List<Spot> GetAll()
         {
-            return _spotRepository.GetAll();
+            return _spotBusiness.GetAll();
         }
 
         public List<Spot> GetByCustomer(int custid)
         {
-            return _spotRepository.GetByCustomer(custid);
+            return _spotBusiness.GetByCustomer(custid);
         }
 
         public Spot GetById(int id)
         {
-            return _spotRepository.GetById(id);
+            return _spotBusiness.GetById(id);
         }
 
         public List<Spot> GetByName(string name)
         {
-            return _spotRepository.GetByName(name);
+            return _spotBusiness.GetByName(name);
         }
 
         public void InactivateSpot(int id)
         {
-            _spotRepository.InactivateSpot(id);
+            _spotBusiness.InactivateSpot(id);
             return;
         }
 
         public Spot Insert(Spot spot)
         {
-            return _spotRepository.Insert(spot);
+            return _spotBusiness.Insert(spot);
         }
 
         public void InsertSpotToCustomer(int spotid, int custid)
         {
-            _spotRepository.InsertSpotToCustomer(spotid, custid);
+            _spotBusiness.InsertSpotToCustomer(spotid, custid);
             return;
         }
 
         public Spot Update(Spot spot)
         {
-            return _spotRepository.Update(spot);
+            return _spotBusiness.Update(spot);
         }
     }
 }

@@ -1,17 +1,10 @@
 ﻿using Domain;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Business.Interfaces
+namespace Services.Interfaces
 {
-    public interface ISpotBusiness
+    public interface ISpotServices
     {
-        /// <summary>
-        /// A Spot cannot be removed.
-        /// Instead, it should be set as Inactive.
-        /// </summary>
-        /// <returns></returns>
         Spot Insert(Spot spot);
 
         Spot GetById(int id);

@@ -19,7 +19,7 @@ namespace Business
             return _customerRepository.GetAll();
         }
 
-        public Customer GetbyId(int id)
+        public Customer GetById(int id)
         {
             return _customerRepository.GetById(id);
         }
