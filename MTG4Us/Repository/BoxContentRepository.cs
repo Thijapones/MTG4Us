@@ -13,22 +13,13 @@ namespace Repository
         {
         }
 
-        public List<BoxContent> GetbyBox(int boxid)
-        {
-            var query = $"select *" +
-                        $"from spots.boxcontent where boxid=@boxid";
-            var parameters = new DynamicParameters();
-            parameters.Add("@boxid", boxid);
-            return ExecuteQuery(query, parameters);
-        }
-
-        public void InsertNewContent(Wish wish, int boxid)
+        public void InsertNewContent(Wish wish)
         {
             var query =
                 $"insert into spots.boxcontent" +
                 $" values(@boxid,@itemid,@quantity)";
             var parameters = new DynamicParameters();
-            parameters.Add("@boxid", boxid);
+            parameters.Add("@boxid", wish.boxid);
             parameters.Add("@itemid", wish.itemid);
             parameters.Add("@quantity", wish.quantity);
 

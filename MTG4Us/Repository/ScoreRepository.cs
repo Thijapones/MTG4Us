@@ -17,7 +17,7 @@ namespace Repository
         public override Score Insert(Score score)
         {
             var query =
-                $"insert into customers.score" +
+                $"insert into customers.score " +
                 $" values(@custid,0,0,0,0)";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", score.custid);
@@ -29,7 +29,7 @@ namespace Repository
         public void IncreaseOwnerRep(int custid)
         {
             var query =
-                $"update customers.score" +
+                $"update customers.score " +
                 $"set ownerpositive=ownerpositive+1 where custid=@custid";
             var parameters = new DynamicParameters();
             parameters.Add("@cust", custid);
@@ -42,7 +42,7 @@ namespace Repository
         public void DecreaseOwnerRep(int custid)
         {
             var query =
-                $"update customers.score" +
+                $"update customers.score " +
                 $"set ownernegative=ownernegative+1 where custid=@custid";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);
@@ -55,7 +55,7 @@ namespace Repository
         public void IncreaseBorrowRep(int custid)
         {
             var query =
-                $"update customers.score" +
+                $"update customers.score " +
                 $"set borrowerpositive=borrowerpositive+1 where custid=@custid";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);
@@ -68,7 +68,7 @@ namespace Repository
         public void DecreaseBorrowRep(int custid)
         {
             var query =
-                $"update customers.score" +
+                $"update customers.score " +
                 $"set borrowernegative=borrowernegative+1 where custid=@custid";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);

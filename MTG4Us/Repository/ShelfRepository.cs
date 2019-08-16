@@ -13,13 +13,10 @@ namespace Repository
         {
         }
 
-        //A shelf will never be removed. An item quantity as well as its available quantity should be set to 0 
-        //instead.
-
         //List all shelves available per customer
         public List<Shelf> GetbyCustomer(int custid)
         {
-            var query = $"select itemid,itemdescription,conservation,quantity,availableqty,marketprice" +
+            var query = $"select * " +
                         $"from customers.vwshelf where custid=@custid";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);
@@ -29,32 +26,47 @@ namespace Repository
         //List shelves that cointais an item for this owner
         public List<Shelf> GetbyCustItem(int custid, int itemid)
         {
-            var query = $"select itemid,itemdescription,conservation,quantity,availableqty,marketprice" +
-            $"from customers.vwshelf where custid=@custid and itemid=@itemid";
+            var query = $"select * " +
+                $"from customers.vwshelf where custid=@custid and itemid=@itemid";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);
             parameters.Add("@itemid", itemid);
             return ExecuteQuery(query, parameters);
         }
 
-        public void UpdateQty(int shelfid, int quantity)
+        public void InsertShelf(Shelf shelf)
         {
-            var query =
-                $"update customers.shelf" +
-                $"set quantity=@quantity where id=@id";
+            var query = $"insert into customers.shelf values" +
+                $"(@custid,@itemid,@conservation,@quantity,@quantity,@marketprice)";
             var parameters = new DynamicParameters();
-            parameters.Add("@id", shelfid);
-            parameters.Add("@quantity", quantity);
-
+            parameters.Add("@custid", shelf.custid);
+            parameters.Add("@itemid", shelf.itemid);
+            parameters.Add("@quantity", shelf.quantity);
+            parameters.Add("@marketprice", shelf.marketprice);
 
             ExecuteQuery(query, parameters);
 
             return;
         }
+
+        public void UpdateQty(int shelfid, int quantity)
+        {
+            var query =
+                $"update customers.shelf " +
+                $"set quantity=@quantity where id=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", shelfid);
+            parameters.Add("@quantity", quantity);
+            
+            ExecuteQuery(query, parameters);
+
+            return;
+        }
+
         public void UpdateAvailQty(int shelfid, int quantity)
         {
             var query =
-                $"update customers.shelf" +
+                $"update customers.shelf " +
                 $"set availablequantity=@availablequantity where id=@id";
             var parameters = new DynamicParameters();
             parameters.Add("@id", shelfid);
@@ -68,7 +80,7 @@ namespace Repository
         public void UpdateMarketPrice(int shelfid, double price)
         {
             var query =
-                $"update customers.shelf" +
+                $"update customers.shelf " +
                 $"set marketprice=@marketprice where id=@id";
             var parameters = new DynamicParameters();
             parameters.Add("@id", shelfid);

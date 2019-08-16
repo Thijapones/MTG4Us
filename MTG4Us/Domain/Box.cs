@@ -11,6 +11,9 @@ namespace Domain
         public string spotname { get; set; }
         public int custid { get; set; }
         public string custname { get; set; }
+        public int ownerid { get; set; }
+        public string ownername { get; set; }
+        public int shelfid { get; set; }
         public int itemid { get; set; }
         public string itemdescription { get; set; }
         public int quantity { get; set; }

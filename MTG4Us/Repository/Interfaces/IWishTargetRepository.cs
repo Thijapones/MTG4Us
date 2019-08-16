@@ -8,5 +8,6 @@ namespace Repository.Interfaces
 {
     public interface IWishTargetRepository : IRepository<WishTarget>
     {
+        List<WishTarget> GetbyWishId(int wishid);
     }
 }

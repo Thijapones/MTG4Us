@@ -17,7 +17,7 @@ namespace Repository
         //Get Exchange by Wish Id
         public List<Exchange> GetbyWish(int wishid)
         {
-            var query = $"select *" +
+            var query = $"select * " +
                         $"from transactions.exchange where wishid=@wishid";
             var parameters = new DynamicParameters();
             parameters.Add("@wishid", wishid);
@@ -25,15 +25,15 @@ namespace Repository
         }
 
         //Create an exchange when a spot admin places an item to be retrieved in a box.
-        public void NewExchange(int wishid,int boxid, int shelfid)
+        public void NewExchange(Wish wish,int boxid)
         {
             var query =
-                $"insert into transactions.exchange" +
+                $"insert into transactions.exchange " +
                 $"values(@wishid,@boxid,null,@shelfid,1)";
             var parameters = new DynamicParameters();
-            parameters.Add("@wishid", wishid);
+            parameters.Add("@wishid", wish.id);
             parameters.Add("@boxid", boxid);
-            parameters.Add("@shelfid", shelfid);
+            parameters.Add("@shelfid", wish.shelfid);
 
             ExecuteQuery(query, parameters);
 
@@ -43,7 +43,7 @@ namespace Repository
         public void GrantExchange(int exchangeid, int bagid)
         {
             var query =
-                $"update transactions.exchange" +
+                $"update transactions.exchange " +
                 $"set bagid=@bagid,status=2 where id=@exchangeid";
             var parameters = new DynamicParameters();
             parameters.Add("@exchangeid", exchangeid);
@@ -57,7 +57,7 @@ namespace Repository
         public void ReturnExchange(int exchangeid, int boxid)
         {
             var query =
-                $"update transactions.exchange" +
+                $"update transactions.exchange " +
                 $"set boxid=@boxid,status=3 where id=@exchangeid";
             var parameters = new DynamicParameters();
             parameters.Add("@exchangeid", exchangeid);
@@ -71,7 +71,7 @@ namespace Repository
         public void AccomplishExchange(int exchangeid)
         {
             var query =
-                $"update transactions.exchange" +
+                $"update transactions.exchange " +
                 $"set status=4 where id=@exchangeid";
             var parameters = new DynamicParameters();
             parameters.Add("@exchangeid", exchangeid);

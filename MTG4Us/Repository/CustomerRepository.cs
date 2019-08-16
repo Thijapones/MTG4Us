@@ -16,11 +16,23 @@ namespace Repository
 
         public List<Customer> GetByName(string name)
         {
-            var query = $"select name,mobilephone,email" +
+            var query = $"select * " +
                         $"from customers.customer where name like @name";
             var parameters = new DynamicParameters();
             parameters.Add("@name", "%" + name + "%");
             return ExecuteQuery(query, parameters);
+        }
+
+        public void InactivateCustomer(int id)
+        {
+            var query = $"update customers.customer " +
+            $"set status=0 where id=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
+
+            ExecuteQuery(query, parameters);
+
+            return;
         }
     }
 }

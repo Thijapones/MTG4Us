@@ -16,7 +16,7 @@ namespace Repository
         //Find spots by name
         public List<Spot> GetByName(string name)
         {
-            var query = $"select name,address,telephone,workinghours" +
+            var query = $"select name,address,telephone,workinghours " +
                         $"from spots.spot where name like @name";
             var parameters = new DynamicParameters();
             parameters.Add("@name", "%" + name + "%");
@@ -27,8 +27,8 @@ namespace Repository
         //Find Spots per Customer
         public List<Spot> GetByCustomer(int custid)
         {
-            var query = $"select name,address,telephone,workinghours" +
-                        $"from spots.spot where id in (select spotid from customers.spots" +
+            var query = $"select name,address,telephone,workinghours " +
+                        $"from spots.spot where id in (select spotid from customers.spots " +
                         $"where custid=@custid)";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);
@@ -43,6 +43,31 @@ namespace Repository
             var parameters = new DynamicParameters();
             parameters.Add("@spotid", spotid);
             parameters.Add("@custid", custid);
+
+            ExecuteQuery(query, parameters);
+
+            return;
+        }
+
+        public void RemoveSpotToCustomer(int spotid, int custid)
+        {
+            var query = $"delete from customers.custspots where " +
+                        $"custid=@custid and spotid=@spotid";
+            var parameters = new DynamicParameters();
+            parameters.Add("@spotid", spotid);
+            parameters.Add("@custid", custid);
+
+            ExecuteQuery(query, parameters);
+
+            return;
+        }
+
+        public void InactivateSpot(int id)
+        {
+            var query = $"update spots.spot " +
+            $"set status=0 where id=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
 
             ExecuteQuery(query, parameters);
 

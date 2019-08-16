@@ -1,4 +1,5 @@
 ﻿using Domain.Base;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
@@ -14,6 +15,7 @@ namespace Domain
         public string itemdescription { get; set; }
         public int quantity { get; set; }
         public int wishid { get; set; }
+        public DateTime returndate { get; set; }
         public int status { get; set; }
     }
 }
