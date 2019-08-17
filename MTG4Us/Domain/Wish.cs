@@ -10,6 +10,7 @@ namespace Domain
         public int custid { get; set; }
         public int ownerid { get; set; }
         public int shelfid { get; set; }
+        public int bagid { get; set; }
         public int itemid { get; set; }
         public string itemdescription { get; set; }
         public int quantity { get; set; }

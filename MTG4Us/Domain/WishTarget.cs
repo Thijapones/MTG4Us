@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain
 {
-    [Table("transactions.vwwishtargets", Schema = "customers")]
+    [Table("transactions.vwwishtarget", Schema = "customers")]
     public class WishTarget : Entity
     {
         public int wishid { get; set; }

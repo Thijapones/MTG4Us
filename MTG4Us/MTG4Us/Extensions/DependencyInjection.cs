@@ -32,6 +32,7 @@ namespace Application.Extensions
         {
             services.AddTransient<IBagServices, BagServices>();
             services.AddTransient<IBoxServices, BoxServices>();
+            services.AddTransient<IBoxContentServices, BoxContentServices>();
             services.AddTransient<ICustomerServices, CustomerServices>();            
             services.AddTransient<IExchangeServices, ExchangeServices>();            
             services.AddTransient<IMTGCardServices, MTGCardServices>();
@@ -50,6 +51,7 @@ namespace Application.Extensions
         {
             services.AddSingleton<IBagBusiness, BagBusiness>();
             services.AddSingleton<IBoxBusiness, BoxBusiness>();
+            services.AddSingleton<IBoxContentBusiness, BoxContentBusiness>();
             services.AddTransient<ICustomerBusiness, CustomerBusiness>();
             services.AddTransient<IExchangeBusiness, ExchangeBusiness>();
             services.AddTransient<IMTGCardBusiness, MTGCardBusiness>();
@@ -68,6 +70,7 @@ namespace Application.Extensions
         {
             services.AddTransient<IBagRepository, BagRepository>();
             services.AddSingleton<IBoxRepository, BoxRepository>();
+            services.AddSingleton<IBoxContentRepository, BoxContentRepository>();
             services.AddTransient<ICustomerRepository, CustomerRepository>();
             services.AddTransient<IExchangeRepository, ExchangeRepository>();
             services.AddTransient<IMTGCardRepository, MTGCardRepository>();

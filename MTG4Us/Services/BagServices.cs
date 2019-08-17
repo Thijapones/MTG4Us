@@ -39,5 +39,10 @@ namespace Services
             _bagBusiness.ReturnBagItem(bagid, status);
             return;
         }
+
+        public Bag GetById(int id)
+        {
+            return _bagBusiness.GetById(id);
+        }
     }
 }

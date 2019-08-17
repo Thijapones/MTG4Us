@@ -1,14 +1,13 @@
-﻿using Domain.Base;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Domain
+namespace Application.ViewModels
 {
-    [Table("spots.boxcontent", Schema = "spots")]
-    public class BoxContent : Entity
+    public class BoxContentViewModel
     {
+        public int id { get; set; }
         public int boxid { get; set; }
         public int custid { get; set; }
         public int ownerid { get; set; }

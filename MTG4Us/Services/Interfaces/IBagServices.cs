@@ -14,5 +14,7 @@ namespace Services.Interfaces
         List<Bag> GetbyWish(int wishid);
 
         void ReturnBagItem(int bagid, int status);
+
+        Bag GetById(int id);
     }
 }

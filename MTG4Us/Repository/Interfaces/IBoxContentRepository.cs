@@ -8,7 +8,7 @@ namespace Repository.Interfaces
 {
     public interface IBoxContentRepository : IRepository<BoxContent>
     {
-        void InsertNewContent(Wish wish);
+        void InsertNewContent(Wish wish, int boxid);
 
         void EmptyBox(int boxid);
     }

@@ -34,7 +34,7 @@ namespace Repository
         public List<Bag> GetbyWish(int wishid)
         {
             var query = $"select * " +
-                        $"from customers.vwbag where ownerid=@ownerid and status=0";
+                        $"from customers.vwbag where wishid=@wishid and status=0";
             var parameters = new DynamicParameters();
             parameters.Add("@wishid", wishid);
             return ExecuteQuery(query, parameters);

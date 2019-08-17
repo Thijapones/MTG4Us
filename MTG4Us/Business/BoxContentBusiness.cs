@@ -19,9 +19,9 @@ namespace Business
             return;
         }
 
-        public void InsertNewContent(Wish wish)
+        public void InsertNewContent(Wish wish, int boxid)
         {
-            _boxcontentRepository.InsertNewContent(wish);
+            _boxcontentRepository.InsertNewContent(wish, boxid);
             return;
         }
     }

@@ -18,9 +18,9 @@ namespace Services
             return;
         }
 
-        public void InsertNewContent(Wish wish)
+        public void InsertNewContent(Wish wish, int boxid)
         {
-            _boxcontentBusiness.InsertNewContent(wish);
+            _boxcontentBusiness.InsertNewContent(wish, boxid);
             return;
         }
     }

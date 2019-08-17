@@ -39,5 +39,10 @@ namespace Business
             _bagRepository.ReturnBagItem(bagid, status);
             return;
         }
+
+        public Bag GetById(int id)
+        {
+            return _bagRepository.GetById(id);
+        }
     }
 }

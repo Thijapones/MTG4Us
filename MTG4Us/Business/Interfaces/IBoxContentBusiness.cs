@@ -18,7 +18,7 @@ namespace Business.Interfaces
         ///query the box itself.
         ///</summary>
 
-        void InsertNewContent(Wish wish);
+        void InsertNewContent(Wish wish, int boxid);
 
         void EmptyBox(int boxid);
     }

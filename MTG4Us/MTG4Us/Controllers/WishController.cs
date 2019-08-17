@@ -107,7 +107,7 @@ namespace Application.Controllers
             }
         }
 
-        [HttpPatch("Grant/{exchange}")]
+        [HttpPatch("Grant/")]
         public ActionResult<string> GrantWish([FromBody] ExchangeViewModel exchange)
         {
             try

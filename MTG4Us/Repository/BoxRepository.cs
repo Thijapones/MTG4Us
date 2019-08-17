@@ -56,7 +56,7 @@ namespace Repository
         {
             var query =
                 $"insert into spots.box " +
-                $" values(@boxnumber,@spotid,null,null,null,0)";
+                $" values(@boxnumber,@spotid,0)";
             var parameters = new DynamicParameters();
             parameters.Add("@boxnumber", boxnumber);
             parameters.Add("@spotid", spotid);

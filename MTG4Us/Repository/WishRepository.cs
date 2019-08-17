@@ -16,7 +16,7 @@ namespace Repository
         public void InsertWish(Wish wish)
         {
             var query = $"insert into transactions.wish values" +
-            $"(@custid,null,null,@itemid,@quantity,null,@returndate,getdate() +7,1)";
+            $"(@custid,null,null,null,@itemid,@quantity,null,@returndate,getdate() +7,1)";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", wish.custid);
             parameters.Add("@itemid", wish.itemid);
@@ -81,10 +81,10 @@ namespace Repository
         {
             var query =
                 $"update transactions.wish " +
-                $"set boxid=@boxid, status=3 where id=@wishid";
+                $"set bagid=@bagid, status=3 where id=@wishid";
             var parameters = new DynamicParameters();
+            parameters.Add("@bagid", exchange.bagid);
             parameters.Add("@wishid", exchange.wishid);
-            parameters.Add("@boxid", exchange.boxid);
 
             ExecuteQuery(query, parameters);
 

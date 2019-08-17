@@ -108,7 +108,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received post Shelf request");
+                _logger.LogInformation("Received post Box request");
                 _boxServices.InsertNewBox(spotid,boxnumber);
                 return Ok("success");
             }
@@ -172,7 +172,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received delete Spot to Customer request");
+                _logger.LogInformation("Received delete Box to Customer request");
                 _boxServices.RemoveBox(boxid);
                 return Ok("success");
             }

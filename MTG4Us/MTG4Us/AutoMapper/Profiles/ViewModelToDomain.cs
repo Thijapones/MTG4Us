@@ -14,9 +14,11 @@ namespace Application.AutoMapper.Profiles
             CreateMap<ShelfViewModel, Shelf>();
             CreateMap<ScoreViewModel, Score>();
             CreateMap<BoxViewModel, Box>();
+            CreateMap<BoxContentViewModel, BoxContent>();
             CreateMap<WishViewModel, Wish>();
             CreateMap<WishTargetViewModel, WishTarget>();
             CreateMap<ExchangeViewModel, Exchange>();
+            CreateMap<BagViewModel, Bag>();
         }
     }
 }

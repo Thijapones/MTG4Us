@@ -13,13 +13,16 @@ namespace Repository
         {
         }
 
-        public void InsertNewContent(Wish wish)
+        public void InsertNewContent(Wish wish, int boxid)
         {
             var query =
                 $"insert into spots.boxcontent" +
-                $" values(@boxid,@itemid,@quantity)";
+                $" values(@boxid,@custid,@ownerid,@shelfid,@itemid,@quantity)";
             var parameters = new DynamicParameters();
-            parameters.Add("@boxid", wish.boxid);
+            parameters.Add("@boxid", boxid);
+            parameters.Add("@custid", wish.custid);
+            parameters.Add("@ownerid", wish.ownerid);
+            parameters.Add("@shelfid", wish.shelfid);
             parameters.Add("@itemid", wish.itemid);
             parameters.Add("@quantity", wish.quantity);
 
