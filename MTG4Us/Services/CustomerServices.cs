@@ -13,6 +13,12 @@ namespace Services
             _customerBusiness = customerBusines;
         }
 
+        public void ActivateCustomer(int id)
+        {
+            _customerBusiness.ActivateCustomer(id);
+            return;
+        }
+
         public List<Customer> GetAll()
         {
             return _customerBusiness.GetAll();

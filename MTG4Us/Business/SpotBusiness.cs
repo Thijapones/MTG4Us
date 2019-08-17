@@ -14,6 +14,12 @@ namespace Business
             _spotRepository = spotRepository;
         }
 
+        public void ActivateSpot(int id)
+        {
+            _spotRepository.ActivateSpot(id);
+            return;
+        }
+
         public List<Spot> GetAll()
         {
             return _spotRepository.GetAll();
@@ -48,6 +54,12 @@ namespace Business
         public void InsertSpotToCustomer(int spotid, int custid)
         {
             _spotRepository.InsertSpotToCustomer(spotid, custid);
+            return;
+        }
+
+        public void RemoveSpotToCustomer(int spotid, int custid)
+        {
+            _spotRepository.RemoveSpotToCustomer(spotid,custid);
             return;
         }
 

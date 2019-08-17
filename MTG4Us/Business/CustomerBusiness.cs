@@ -14,6 +14,12 @@ namespace Business
             _customerRepository = customerRepository;
         }
 
+        public void ActivateCustomer(int id)
+        {
+            _customerRepository.ActivateCustomer(id);
+            return;
+        }
+
         public List<Customer> GetAll()
         {
             return _customerRepository.GetAll();

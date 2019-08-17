@@ -9,5 +9,7 @@ namespace Repository.Interfaces
         List<Customer> GetByName(string name);
 
         void InactivateCustomer(int id);
+
+        void ActivateCustomer(int id);
     }
 }

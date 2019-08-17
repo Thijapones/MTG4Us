@@ -1,0 +1,13 @@
+﻿namespace Application.ViewModels
+{
+    public class SpotViewModel
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string document { get; set; }
+        public string address { get; set; }
+        public string telephone { get; set; }
+        public string workinghours { get; set; }
+        public bool status { get; set; }
+    }
+}

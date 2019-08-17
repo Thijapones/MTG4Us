@@ -12,6 +12,10 @@ namespace Repository.Interfaces
 
         void InsertSpotToCustomer(int spotid, int custid);
 
+        void RemoveSpotToCustomer(int spotid, int custid);
+
         void InactivateSpot(int id);
+
+        void ActivateSpot(int id);
     }
 }

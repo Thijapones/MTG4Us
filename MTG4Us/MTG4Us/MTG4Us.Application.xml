@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Application</name>
+    </assembly>
+    <members>
+        <member name="M:Application.Extensions.DependencyInjection.DependencyInjectionServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Services Dependency Injections
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Application.Extensions.DependencyInjection.DependencyInjectionRepository(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Business Dependency Injections
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Application.Extensions.DependencyInjection.DependencyInjectionBusiness(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Repository Dependency Injections
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Application.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices AddMVc and Config swagger
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Application.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.Extensions.Hosting.IHostingEnvironment)">
+            <summary>
+            Método Configure startup. Usando MVC e Swagger
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+        </member>
+    </members>
+</doc>

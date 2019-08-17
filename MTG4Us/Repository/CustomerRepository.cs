@@ -34,5 +34,17 @@ namespace Repository
 
             return;
         }
+
+        public void ActivateCustomer(int id)
+        {
+            var query = $"update customers.customer " +
+            $"set status=1 where id=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
+
+            ExecuteQuery(query, parameters);
+
+            return;
+        }
     }
 }

@@ -23,5 +23,7 @@ namespace Business.Interfaces
         Customer Update(Customer customer);
 
         void InactivateCustomer(int id);
+
+        void ActivateCustomer(int id);
     }
 }

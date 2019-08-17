@@ -28,7 +28,7 @@ namespace Repository
         public List<Spot> GetByCustomer(int custid)
         {
             var query = $"select name,address,telephone,workinghours " +
-                        $"from spots.spot where id in (select spotid from customers.spots " +
+                        $"from spots.spot where id in (select spotid from customers.custspots " +
                         $"where custid=@custid)";
             var parameters = new DynamicParameters();
             parameters.Add("@custid", custid);
@@ -66,6 +66,18 @@ namespace Repository
         {
             var query = $"update spots.spot " +
             $"set status=0 where id=@id";
+            var parameters = new DynamicParameters();
+            parameters.Add("@id", id);
+
+            ExecuteQuery(query, parameters);
+
+            return;
+        }
+
+        public void ActivateSpot(int id)
+        {
+            var query = $"update spots.spot " +
+            $"set status=1 where id=@id";
             var parameters = new DynamicParameters();
             parameters.Add("@id", id);
 

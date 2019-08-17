@@ -13,6 +13,12 @@ namespace Services
             _spotBusiness = spotBusiness;
         }
 
+        public void ActivateSpot(int id)
+        {
+            _spotBusiness.ActivateSpot(id);
+            return;
+        }
+
         public List<Spot> GetAll()
         {
             return _spotBusiness.GetAll();
@@ -47,6 +53,12 @@ namespace Services
         public void InsertSpotToCustomer(int spotid, int custid)
         {
             _spotBusiness.InsertSpotToCustomer(spotid, custid);
+            return;
+        }
+
+        public void RemoveSpotToCustomer(int spotid, int custid)
+        {
+            _spotBusiness.RemoveSpotToCustomer(spotid,custid);
             return;
         }
 
