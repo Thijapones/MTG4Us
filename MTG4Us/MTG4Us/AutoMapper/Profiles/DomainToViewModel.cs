@@ -15,6 +15,8 @@ namespace Application.AutoMapper.Profiles
             CreateMap<Score, ScoreViewModel>();
             CreateMap<Box, BoxViewModel>();
             CreateMap<Wish, WishViewModel>();
+            CreateMap<WishTarget, WishTargetViewModel>();
+            CreateMap<Exchange, ExchangeViewModel>();
         }
     }
 }

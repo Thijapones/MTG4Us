@@ -28,7 +28,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received get list Box request");
+                _logger.LogInformation("Received get Box request");
                 var result = _boxServices.GetById(id);
                 return Ok(_mapper.Map<BoxViewModel>(result));
             }
@@ -120,12 +120,12 @@ namespace Application.Controllers
         }
 
         [HttpPatch("{wish}")]
-        public ActionResult<string> UpdateBox([FromBody] Wish wish)
+        public ActionResult<string> UpdateBox([FromBody] WishViewModel wish)
         {
             try
             {
                 _logger.LogInformation("Received patch Box request");
-                _boxServices.UpdateBox(wish);
+                _boxServices.UpdateBox(_mapper.Map<Wish>(wish));
                 return Ok("OK");
             }
             catch (Exception exception)

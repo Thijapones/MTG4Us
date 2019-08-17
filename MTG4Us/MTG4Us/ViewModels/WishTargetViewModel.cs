@@ -1,11 +1,8 @@
-﻿using Domain.Base;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Domain
+﻿namespace Application.ViewModels
 {
-    [Table("transactions.vwwishtargets", Schema = "customers")]
-    public class WishTarget : Entity
+    public class WishTargetViewModel
     {
+        public int id { get; set; }
         public int wishid { get; set; }
         public int custid { get; set; }
         public int spotid { get; set; }

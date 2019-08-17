@@ -14,7 +14,7 @@ namespace Repository.Interfaces
 
         List<Wish> GetWishesPerCustomerSpot(int custid, int spotid);
 
-        void AttendWish(int wishid, WishTarget target);
+        void AttendWish(WishTarget target);
 
         void GrantWish(Exchange exchange);
     }

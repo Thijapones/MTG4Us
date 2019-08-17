@@ -14,13 +14,15 @@ namespace Business.Interfaces
 
         void InsertWish(Wish wish);
 
+        Wish GetById(int id);
+
         List<Wish> GetWishesPerCustomer(int custid);
 
         List<Wish> GetWishesPerSpot(int spotid);
 
         List<Wish> GetWishesPerCustomerSpot(int custid, int spotid);
 
-        void AttendWish(int wishid, WishTarget target);
+        void AttendWish(WishTarget target);
 
         void GrantWish(Exchange exchange);
     }

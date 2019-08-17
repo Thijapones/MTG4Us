@@ -59,14 +59,14 @@ namespace Repository
             return ExecuteQuery(query, parameters);
         }
 
-        public void AttendWish(int wishid, WishTarget target)
+        public void AttendWish(WishTarget target)
         {
             var query =
                 $"update transactions.wish " +
                 $"set ownerid=@ownerid, spotid=@spotid, quantity=@quantity," +
-                $" @shelfid, status=2 where id=@wishid";
+                $" shelfid=@shelfid, status=2 where id=@wishid";
             var parameters = new DynamicParameters();
-            parameters.Add("@wishid", wishid);
+            parameters.Add("@wishid", target.wishid);
             parameters.Add("@ownerid", target.ownerid);
             parameters.Add("@spotid", target.spotid);
             parameters.Add("@quantity", target.quantity);

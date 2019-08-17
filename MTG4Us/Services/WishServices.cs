@@ -13,9 +13,9 @@ namespace Services
             _wishBusiness = wishBusiness;
         }
 
-        public void AttendWish(int wishid, WishTarget target)
+        public void AttendWish(WishTarget target)
         {
-            _wishBusiness.AttendWish(wishid, target);
+            _wishBusiness.AttendWish(target);
             return;
         }
 
@@ -44,6 +44,11 @@ namespace Services
         {
             _wishBusiness.InsertWish(wish);
             return;
+        }
+
+        public Wish GetById(int id)
+        {
+            return _wishBusiness.GetById(id);
         }
     }
 }
