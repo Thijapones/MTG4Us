@@ -1,6 +1,7 @@
 ﻿using Business.Interfaces;
 using Domain;
 using Repository.Interfaces;
+using System.Collections.Generic;
 
 namespace Business
 {
@@ -40,6 +41,11 @@ namespace Business
         public Score Insert(Score score)
         {
             return _scoreRepository.Insert(score);
+        }
+
+        public List<Score> GetByCustId(int custid)
+        {
+            return _scoreRepository.GetByCustId(custid);
         }
     }
 }

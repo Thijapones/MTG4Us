@@ -1,6 +1,7 @@
 ﻿using Business.Interfaces;
 using Domain;
 using Services.Interfaces;
+using System.Collections.Generic;
 
 namespace Services
 {
@@ -39,6 +40,11 @@ namespace Services
         public Score Insert(Score score)
         {
             return _scoreBusiness.Insert(score);
+        }
+
+        public List<Score> GetByCustId(int custid)
+        {
+            return _scoreBusiness.GetByCustId(custid);
         }
 
     }

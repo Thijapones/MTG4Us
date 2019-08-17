@@ -1,4 +1,5 @@
 ﻿using Domain;
+using System.Collections.Generic;
 
 namespace Services.Interfaces
 {
@@ -13,5 +14,7 @@ namespace Services.Interfaces
         void IncreaseBorrowRep(int custid);
 
         void DecreaseBorrowRep(int custid);
+
+        List<Score> GetByCustId(int custid);
     }
 }

@@ -10,6 +10,11 @@ namespace Application.AutoMapper.Profiles
         {
             CreateMap<CustomerViewModel, Customer>();
             CreateMap<SpotViewModel, Spot>();
+            CreateMap<MTGCardViewModel, MTGCard>();
+            CreateMap<ShelfViewModel, Shelf>();
+            CreateMap<ScoreViewModel, Score>();
+            CreateMap<BoxViewModel, Box>();
+            CreateMap<WishViewModel, Wish>();
         }
     }
 }

@@ -12,6 +12,6 @@ namespace Repository.Interfaces
 
         List<MTGCard> GetBySetCode(string setcode);
 
-        List<MTGCard> GetByMTGId(string mtgid);
+        List<MTGCard> GetByMTGId(int mtgid);
     }
 }

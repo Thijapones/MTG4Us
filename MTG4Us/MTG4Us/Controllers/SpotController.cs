@@ -29,7 +29,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received post request");
+                _logger.LogInformation("Received GetAll request");
                 var clients = _spotServices.GetAll();
                 return Ok(_mapper.Map<List<Spot>>(clients));
             }
@@ -45,7 +45,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received get list price request");
+                _logger.LogInformation("Received get list Spot request");
                 var result = _spotServices.GetById(id);
                 return Ok(_mapper.Map<Spot>(result));
             }
@@ -61,7 +61,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received get list price request");
+                _logger.LogInformation("Received get list Spot request");
                 var result = _spotServices.GetByName(name);
                 return Ok(_mapper.Map<List<Spot>>(result));
             }
@@ -77,7 +77,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received get list price request");
+                _logger.LogInformation("Received get list Spot request");
                 var result = _spotServices.GetByCustomer(id);
                 return Ok(_mapper.Map<List<Spot>>(result));
             }
@@ -93,7 +93,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received post price request");
+                _logger.LogInformation("Received post Spot request");
                 _spotServices.Insert(_mapper.Map<Spot>(spot));
                 return Ok("success");
             }
@@ -109,7 +109,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received post price request");
+                _logger.LogInformation("Received post Spot to Customer request");
                 _spotServices.InsertSpotToCustomer(spotid,custid);
                 return Ok("success");
             }
@@ -125,7 +125,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received put price request");
+                _logger.LogInformation("Received put Spot request");
                 _spotServices.Update(_mapper.Map<Spot>(customer));
                 return Ok(_mapper.Map<Spot>(customer));
             }
@@ -141,7 +141,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received put price request");
+                _logger.LogInformation("Received activate Spot request");
                 _spotServices.ActivateSpot(id);
                 return Ok("OK");
             }
@@ -157,7 +157,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received put price request");
+                _logger.LogInformation("Received inactivate Spot request");
                 _spotServices.InactivateSpot(id);
                 return Ok("OK");
             }
@@ -173,7 +173,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received post price request");
+                _logger.LogInformation("Received delete Spot to Customer request");
                 _spotServices.RemoveSpotToCustomer(spotid, custid);
                 return Ok("success");
             }

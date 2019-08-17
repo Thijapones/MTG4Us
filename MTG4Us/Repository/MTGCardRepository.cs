@@ -18,7 +18,7 @@ namespace Repository
 
         public List<MTGCard> GetByName(string name)
         {
-            var query = $"select id,name,set,set_code,mtgid " +
+            var query = $"select * " +
                         $"from items.mtgcard where name like @name";
             var parameters = new DynamicParameters();
             parameters.Add("@name", "%" + name + "%");
@@ -27,8 +27,8 @@ namespace Repository
 
         public List<MTGCard> GetBySet(string set)
         {
-            var query = $"select id,name,set,set_code,mtgid " +
-                        $"from items.mtgcard where set like @set";
+            var query = $"select * " +
+                        $"from items.mtgcard where [set] like @set";
             var parameters = new DynamicParameters();
             parameters.Add("@set", "%" + set + "%");
             return ExecuteQuery(query, parameters);
@@ -36,16 +36,16 @@ namespace Repository
 
         public List<MTGCard> GetBySetCode(string setcode)
         {
-            var query = $"select id,name,set,set_code,mtgid " +
-                        $"from items.mtgcard where set_code like @setcode";
+            var query = $"select * " +
+                        $"from items.mtgcard where setcode like @setcode";
             var parameters = new DynamicParameters();
             parameters.Add("@setcode", "%" + setcode + "%");
             return ExecuteQuery(query, parameters);
         }
 
-        public List<MTGCard> GetByMTGId(string mtgid)
+        public List<MTGCard> GetByMTGId(int mtgid)
         {
-            var query = $"select id,name,set,set_code,mtgid " +
+            var query = $"select * " +
                         $"from items.mtgcard where mtgid=@mtgid";
             var parameters = new DynamicParameters();
             parameters.Add("@mtgid", mtgid);

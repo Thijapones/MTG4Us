@@ -41,6 +41,7 @@ namespace Repository
             var parameters = new DynamicParameters();
             parameters.Add("@custid", shelf.custid);
             parameters.Add("@itemid", shelf.itemid);
+            parameters.Add("@conservation", shelf.conservation);
             parameters.Add("@quantity", shelf.quantity);
             parameters.Add("@marketprice", shelf.marketprice);
 
@@ -67,10 +68,10 @@ namespace Repository
         {
             var query =
                 $"update customers.shelf " +
-                $"set availablequantity=@availablequantity where id=@id";
+                $"set availableqty=@availableqty where id=@id";
             var parameters = new DynamicParameters();
             parameters.Add("@id", shelfid);
-            parameters.Add("@availablequantity", quantity);
+            parameters.Add("@availableqty", quantity);
             
             ExecuteQuery(query, parameters);
 

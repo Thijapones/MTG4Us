@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Application.ViewModels;
 using AutoMapper;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -25,13 +26,13 @@ namespace Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Customer>> GetAll()
+        public ActionResult<List<CustomerViewModel>> GetAll()
         {
             try
             {
-                _logger.LogInformation("Received post request");
+                _logger.LogInformation("Received GetAll request");
                 var clients = _customerServices.GetAll();
-                return Ok(_mapper.Map<List<Customer>>(clients));
+                return Ok(_mapper.Map<List<CustomerViewModel>>(clients));
             }
             catch (Exception exception)
             {
@@ -41,13 +42,13 @@ namespace Application.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Customer> GetById(int id)
+        public ActionResult<CustomerViewModel> GetById(int id)
         {
             try
             {
-                _logger.LogInformation("Received get list price request");
+                _logger.LogInformation("Received get list Customer request");
                 var result = _customerServices.GetById(id);
-                return Ok(_mapper.Map<Customer>(result));
+                return Ok(_mapper.Map<CustomerViewModel>(result));
             }
             catch (Exception exception)
             {
@@ -57,13 +58,13 @@ namespace Application.Controllers
         }
 
         [HttpGet("Name/{name}")]
-        public ActionResult<List<Customer>> GetByName(string name)
+        public ActionResult<List<CustomerViewModel>> GetByName(string name)
         {
             try
             {
-                _logger.LogInformation("Received get list price request");
+                _logger.LogInformation("Received get list Customer request");
                 var result = _customerServices.GetByName(name);
-                return Ok(_mapper.Map<List<Customer>>(result));
+                return Ok(_mapper.Map<List<CustomerViewModel>>(result));
             }
             catch (Exception exception)
             {
@@ -73,11 +74,11 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Post([FromBody] Customer customer)
+        public ActionResult<string> Post([FromBody] CustomerViewModel customer)
         {
             try
             {
-                _logger.LogInformation("Received post price request");
+                _logger.LogInformation("Received post Customer request");
                 _customerServices.Insert(_mapper.Map<Customer>(customer));
                 return Ok("success");
             }
@@ -89,13 +90,13 @@ namespace Application.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Customer> Update(Customer customer)
+        public ActionResult<Customer> Update(CustomerViewModel customer)
         {
             try
             {
-                _logger.LogInformation("Received put price request");
+                _logger.LogInformation("Received put Customer request");
                 _customerServices.Update(_mapper.Map<Customer>(customer));
-                return Ok(_mapper.Map<Customer>(customer));
+                return Ok(_mapper.Map<CustomerViewModel>(customer));
             }
             catch (Exception exception)
             {
@@ -109,7 +110,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received put price request");
+                _logger.LogInformation("Received patch Customer request");
                 _customerServices.ActivateCustomer(id);                    
                 return Ok("OK");
             }
@@ -125,7 +126,7 @@ namespace Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received put price request");
+                _logger.LogInformation("Received patch Customer request");
                 _customerServices.InactivateCustomer(id);
                 return Ok("OK");
             }

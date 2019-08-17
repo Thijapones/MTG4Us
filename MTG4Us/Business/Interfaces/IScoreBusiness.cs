@@ -9,6 +9,8 @@ namespace Business.Interfaces
     {
         Score Insert(Score score);
 
+        List<Score> GetByCustId(int custid);
+
         void IncreaseOwnerRep(int custid);
 
         void DecreaseOwnerRep(int custid);

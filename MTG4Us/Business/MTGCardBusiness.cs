@@ -19,7 +19,7 @@ namespace Business
             return _mtgcardRepository.GetAll();
         }
 
-        public List<MTGCard> GetByMTGId(string mtgid)
+        public List<MTGCard> GetByMTGId(int mtgid)
         {
             return _mtgcardRepository.GetByMTGId(mtgid);
         }

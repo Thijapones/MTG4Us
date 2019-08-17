@@ -1,11 +1,8 @@
-﻿using Domain.Base;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Domain
+﻿namespace Application.ViewModels
 {
-    [Table("customers.vwscore", Schema = "customers")]
-    public class Score : Entity
+    public class ScoreViewModel
     {
+        public int id { get; set; }
         public int custid { get; set; }
         public string name { get; set; }
         public double ownerpositive { get; set; }

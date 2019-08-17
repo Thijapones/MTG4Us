@@ -3,6 +3,7 @@ using Domain;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Repository.Interfaces;
+using System.Collections.Generic;
 
 namespace Repository
 {
@@ -26,13 +27,24 @@ namespace Repository
             return score;
         }
 
+        public List<Score> GetByCustId(int custid)
+        {
+            var query =
+                $"select * from customers.vwscore " +
+                $"where custid=@custid";
+            var parameters = new DynamicParameters();
+            parameters.Add("@custid", custid);
+
+            return ExecuteQuery(query, parameters);
+        }
+
         public void IncreaseOwnerRep(int custid)
         {
             var query =
                 $"update customers.score " +
                 $"set ownerpositive=ownerpositive+1 where custid=@custid";
             var parameters = new DynamicParameters();
-            parameters.Add("@cust", custid);
+            parameters.Add("@custid", custid);
 
             ExecuteQuery(query, parameters);
 
