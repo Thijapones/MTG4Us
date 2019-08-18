@@ -45,7 +45,7 @@ Definition of the available trading spots:
     0 - Inactive  
     1 - Active
 
-##MTGCard
+## MTGCard
 
 Set existing cards already included in the application:
 
