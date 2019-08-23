@@ -104,8 +104,8 @@ namespace Application.Controllers
             }
         }
 
-        [HttpPost("Customer/{custid}")]
-        public ActionResult<string> InsertSpotToCustomer([FromHeader] int spotid, int custid)
+        [HttpPost("Customer/{spotid}/{custid}")]
+        public ActionResult<string> InsertSpotToCustomer([FromRoute] int spotid, int custid)
         {
             try
             {
