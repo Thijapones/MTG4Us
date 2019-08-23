@@ -74,6 +74,8 @@ A wish contains the item that a borrower wishes for.
 	[id] [int] IDENTITY(1,1) NOT NULL,  
 	[custid] [int] NULL,  
 	[ownerid] [int] NULL,  
+	[shelfid] [int] NULL,  
+	[bagid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[quantity] [int] NULL,  
 	[spotid] [int] NULL,  
@@ -85,17 +87,21 @@ A wish contains the item that a borrower wishes for.
     1 - Open  
     2 - Attended  
     3 - Granted  
-    4 - Expired
+    4 - Accomplished
+	5 - Expired
 
 ##WishTarget
 
 The top 20 possible granters of a wish, ordered by available quantity and marketprice.
 
+	[id] [int] NULL,  
+	[wishid] [int] NULL,  
 	[custid] [int] NULL,  
 	[spotid] [int] NULL,  
 	[spot] [string] NULL,  
 	[ownerid] [int] NULL,  
 	[owner] [string] NULL,  
+	[shelfid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[itemdescription] [string] NOT NULL,  
 	[quantity] [int] NOT NULL,  
@@ -122,12 +128,13 @@ Controls the exchange transaction of a wish that has been granted.
 
 A bag holds items the user borrowed.
 
-	[id] [int] NOT NULL,  
+	[id] [int] IDENTITY(1,1) NOT NULL,  
 	[custid] [int] NULL,  
 	[ownerid] [int] NULL,  
 	[itemid] [int] NULL,  
 	[quantity] [int] NULL,  
-	[wishid] [int] NULL  
+	[wishid] [int] NULL,  
+	[returndate] [date] NULL,  
     [Status] [int] NOT NULL  
     Status:  
     0 - NotReturned  
@@ -141,8 +148,6 @@ Definitions of the boxes in each spot:
 	[id] [int] NOT NULL,  
 	[boxnumber] [int] NOT NULL,  
 	[spotid] [int] NULL,  
-	[custid] [int] NULL,  
-	[ownerid] [int] NULL,
 	[status] [bit] NOT NULL  
     Status:  
     0 - Empty  
@@ -153,5 +158,8 @@ Definitions of the boxes in each spot:
 Definitions of the items in each box:
 
 	[boxid] [int] NOT NULL,  
+	[custid] [int] NULL,  
+	[ownerid] [int] NULL,  
+	[shelfid] [int] NULL,  
 	[itemid] [int] NULL,  
-	[quantity] [int] NULL
+	[quantity] [int] NULL  

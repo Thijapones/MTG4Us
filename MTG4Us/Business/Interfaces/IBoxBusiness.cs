@@ -13,7 +13,7 @@ namespace Business.Interfaces
         /// Only a store manager can handle boxes.
         /// </summary>
 
-        void InsertNewBox(int spotid, int boxnumber);
+        void InsertNewBox(int spotid, string boxnumber);
 
         Box GetById(int boxid);
 

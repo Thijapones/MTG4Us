@@ -5,7 +5,7 @@ namespace Services.Interfaces
 {
     public interface IBoxServices
     {
-        void InsertNewBox(int spotid, int boxnumber);
+        void InsertNewBox(int spotid, string boxnumber);
 
         Box GetById(int boxid);
 

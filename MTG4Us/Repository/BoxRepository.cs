@@ -52,7 +52,7 @@ namespace Repository
             return ExecuteQuery(query, parameters);
         }
 
-        public void InsertNewBox(int spotid, int boxnumber)
+        public void InsertNewBox(int spotid, string boxnumber)
         {
             var query =
                 $"insert into spots.box " +

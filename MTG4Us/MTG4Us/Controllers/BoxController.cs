@@ -103,8 +103,8 @@ namespace Application.Controllers
             }
         }
 
-        [HttpPost("{spotid}")]
-        public ActionResult<string> InsertNewBox([FromHeader] int boxnumber, int spotid)
+        [HttpPost("{spotid}/{boxnumber}")]
+        public ActionResult<string> InsertNewBox([FromRoute] int spotid, string boxnumber)
         {
             try
             {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Web.Http.Cors;
 using Application.ViewModels;
 using AutoMapper;
 using Domain;
@@ -9,6 +10,8 @@ using Services.Interfaces;
 
 namespace Application.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+
     [Route("api/[controller]")]
     [ApiController]
     public class BagController : ControllerBase

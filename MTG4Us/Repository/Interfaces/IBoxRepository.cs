@@ -6,7 +6,7 @@ namespace Repository.Interfaces
 {
     public interface IBoxRepository : IRepository<Box>
     {
-        void InsertNewBox(int spotid, int boxnumber);
+        void InsertNewBox(int spotid, string boxnumber);
         List<Box> GetbySpot(int spotid);
 
         List<Box> GetbySpotCust(int spotid, int custid);

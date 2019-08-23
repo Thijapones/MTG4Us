@@ -39,7 +39,7 @@ namespace Business
             return _boxRepository.GetbySpotOwner(spotid, ownerid);
         }
 
-        public void InsertNewBox(int spotid, int boxnumber)
+        public void InsertNewBox(int spotid, string boxnumber)
         {
             _boxRepository.InsertNewBox(spotid, boxnumber);
             return;

@@ -74,13 +74,13 @@ namespace Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Post([FromBody] CustomerViewModel customer)
+        public ActionResult<Customer> Post([FromBody] CustomerViewModel customer)
         {
             try
             {
                 _logger.LogInformation("Received post Customer request");
                 _customerServices.Insert(_mapper.Map<Customer>(customer));
-                return Ok("success");
+                return Ok(_mapper.Map<CustomerViewModel>(customer));
             }
             catch (Exception exception)
             {

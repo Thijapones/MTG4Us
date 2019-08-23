@@ -38,7 +38,7 @@ namespace Services
             return _boxBusiness.GetbySpotOwner(spotid, ownerid);
         }
 
-        public void InsertNewBox(int spotid, int boxnumber)
+        public void InsertNewBox(int spotid, string boxnumber)
         {
             _boxBusiness.InsertNewBox(spotid, boxnumber);
             return;

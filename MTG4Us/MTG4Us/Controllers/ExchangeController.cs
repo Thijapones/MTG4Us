@@ -58,8 +58,8 @@ namespace Application.Controllers
             }
         }
 
-        [HttpPatch("Grant/{exchangeid}")]
-        public ActionResult<string> UpdateBox(int bagid, [FromRoute] int exchangeid)
+        [HttpPatch("Grant/{exchangeid}/{bagid}")]
+        public ActionResult<string> UpdateBox([FromRoute] int exchangeid, int bagid)
         {
             try
             {

@@ -38,7 +38,12 @@ namespace Application
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors(c =>
+            {
+                c.AllowAnyHeader();
+                c.AllowAnyMethod();
+                c.AllowAnyOrigin();
+            });
             app.UseMvc();
             app.SwaggerApplication();
         }
