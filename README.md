@@ -1,9 +1,9 @@
 # OdaLibrary
 Final Countdown Project
 
-#Entity Index
+# Entity Index
 
-##Customer  
+## Customer  
   
 Definition of the customers:
 
@@ -17,7 +17,7 @@ Definition of the customers:
     0 - Inactive  
     1 - Active
 
-##Score
+## Score
 
 Definition of the customer's reputation among the community.  
 Each positive or negative review are incremental to his history:
@@ -29,7 +29,7 @@ Each positive or negative review are incremental to his history:
 	[borrowerpositive] [int] NULL,
 	[borrowernegative] [int] NULL
 
-##Spot
+## Spot
   
 Definition of the available trading spots:  
 
@@ -45,7 +45,7 @@ Definition of the available trading spots:
     0 - Inactive  
     1 - Active
 
-##MTGCard
+## MTGCard
 
 Set existing cards already included in the application:
 
@@ -55,7 +55,7 @@ Set existing cards already included in the application:
 	[setcode] [varchar](5) NULL
 	[mtgid] [int] NOT NULL
 
-##Shelf
+## Shelf
 
 A shelf contains items each user has for loan:
 
@@ -67,7 +67,7 @@ A shelf contains items each user has for loan:
 	[availableqty] [int] NULL,  
 	[marketprice] [numeric](10, 2) NULL  
 
-##Wish
+## Wish
 
 A wish contains the item that a borrower wishes for.
 
@@ -90,7 +90,7 @@ A wish contains the item that a borrower wishes for.
     4 - Accomplished
 	5 - Expired
 
-##WishTarget
+## WishTarget
 
 The top 20 possible granters of a wish, ordered by available quantity and marketprice.
 
@@ -107,7 +107,7 @@ The top 20 possible granters of a wish, ordered by available quantity and market
 	[quantity] [int] NOT NULL,  
 	[marketprice] [numeric](10, 2) NULL  
 
-##Exchange
+## Exchange
 
 Controls the exchange transaction of a wish that has been granted.
 
@@ -124,7 +124,7 @@ Controls the exchange transaction of a wish that has been granted.
     3 - Returned  
 	4 - Accomplished
 
-##Bag
+## Bag
 
 A bag holds items the user borrowed.
 
@@ -141,7 +141,7 @@ A bag holds items the user borrowed.
     1 - ReturnedOK  
     2 - ReturnedNOK
 
-##Box
+## Box
 
 Definitions of the boxes in each spot:
 
@@ -153,7 +153,7 @@ Definitions of the boxes in each spot:
     0 - Empty  
     1 - Occupied  
 
-##BoxContent
+## BoxContent
 
 Definitions of the items in each box:
 
